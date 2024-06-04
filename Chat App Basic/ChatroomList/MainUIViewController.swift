@@ -15,12 +15,28 @@ class MainUIViewController: UIViewController {
     @IBOutlet var chatRoomTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        chatRoomSearchBar.delegate = self
+        
+        configureView()
+        configureTable()
+        configureSearchBar()
+    }
+    
+    func configureView() {
+        //
+    }
+    
+    func configureTable() {
         chatRoomTable.delegate = self
         chatRoomTable.dataSource = self
-        chatRoomTable.register(UINib(nibName: ChatRoomViewCell.identifier, bundle: nil), forCellReuseIdentifier: ChatRoomViewCell.identifier)
-        
-        chatRoomTable.rowHeight = 120
+        chatRoomTable.rowHeight = 80
+        chatRoomTable.register(UINib(nibName: SingleProfileCell.identifier, bundle: nil), forCellReuseIdentifier: SingleProfileCell.identifier)
+        chatRoomTable.register(UINib(nibName: DoubleProfileCell.identifier, bundle: nil), forCellReuseIdentifier: DoubleProfileCell.identifier)
+        chatRoomTable.register(UINib(nibName: TripleProfileCell.identifier, bundle: nil), forCellReuseIdentifier: TripleProfileCell.identifier)
+        chatRoomTable.register(UINib(nibName: MoreThanTripleProfileCell.identifier, bundle: nil), forCellReuseIdentifier: MoreThanTripleProfileCell.identifier)
+    }
+    
+    func configureSearchBar() {
+        chatRoomSearchBar.delegate = self
     }
 
 }
@@ -35,12 +51,44 @@ extension MainUIViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = chatRoomTable.dequeueReusableCell(withIdentifier: ChatRoomViewCell.identifier, for: indexPath) as! ChatRoomViewCell
+        let data = dataTransfer.getChatRoomById(id: indexPath.row + 1)
+
+        switch data.chatroomImage.count {
+        case 1:
+            let cell = chatRoomTable.dequeueReusableCell(withIdentifier: SingleProfileCell.identifier, for: indexPath) as! SingleProfileCell
+            
+            cell.setData(data)
+            
+            return cell
+        case 2:
+            let cell = chatRoomTable.dequeueReusableCell(withIdentifier: DoubleProfileCell.identifier, for: indexPath) as! DoubleProfileCell
+            
+            cell.setData(data)
+            
+            return cell
+        case 3:
+            let cell = chatRoomTable.dequeueReusableCell(withIdentifier: TripleProfileCell.identifier, for: indexPath) as! TripleProfileCell
+            
+            cell.setData(data)
+            
+            return cell
+        default:
+            let cell = chatRoomTable.dequeueReusableCell(withIdentifier: MoreThanTripleProfileCell.identifier, for: indexPath) as! MoreThanTripleProfileCell
+            
+            cell.setData(data)
+            
+            return cell
+        }
         
-        cell.setCellData(dataTransfer.getChatRoomById(id: indexPath.row))
-        
-        return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ChatUIViewController.identifier) as! ChatUIViewController
+        
+        vc.setData(dataTransfer.getChatRoomById(id: indexPath.row + 1))
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
+        chatRoomTable.reloadRows(at: [indexPath], with: .none)
+    }
 }

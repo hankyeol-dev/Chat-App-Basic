@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OtherUserChat" rowHeight="70" id="KGk-i7-Jjw" customClass="OtherUserChat" customModule="Chat_App_Basic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ycv-hU-4KC">
+                        <rect key="frame" x="8" y="4" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="N9e-eU-Z6R"/>
+                            <constraint firstAttribute="height" constant="40" id="Yqs-nx-wMi"/>
+                            <constraint firstAttribute="width" secondItem="ycv-hU-4KC" secondAttribute="height" multiplier="1:1" id="zbO-pg-nGu"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvo-hC-NX3">
+                        <rect key="frame" x="56" y="4" width="256" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="by3-Hu-I7n">
+                        <rect key="frame" x="56" y="33.666666666666664" width="208" height="28.333333333333336"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YK5-Il-2Lg">
+                                <rect key="frame" x="6" y="4" width="196" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YK5-Il-2Lg" firstAttribute="top" secondItem="by3-Hu-I7n" secondAttribute="top" constant="4" id="7ie-uU-He1"/>
+                            <constraint firstAttribute="bottom" secondItem="YK5-Il-2Lg" secondAttribute="bottom" constant="4" id="9yQ-dX-36F"/>
+                            <constraint firstAttribute="trailing" secondItem="YK5-Il-2Lg" secondAttribute="trailing" constant="6" id="Ikt-Yn-N8i"/>
+                            <constraint firstItem="YK5-Il-2Lg" firstAttribute="leading" secondItem="by3-Hu-I7n" secondAttribute="leading" constant="6" id="O30-Yp-L33"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kza-eU-iUm">
+                        <rect key="frame" x="272" y="41" width="40" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="GVW-S9-rVD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ycv-hU-4KC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="1FH-WP-P7U"/>
+                    <constraint firstItem="ycv-hU-4KC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="3gi-Xm-yZO"/>
+                    <constraint firstItem="kza-eU-iUm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zvo-hC-NX3" secondAttribute="bottom" constant="8" id="5sG-Ir-O0a"/>
+                    <constraint firstItem="kza-eU-iUm" firstAttribute="leading" secondItem="by3-Hu-I7n" secondAttribute="trailing" constant="8" id="O84-c9-uZa"/>
+                    <constraint firstAttribute="trailing" secondItem="zvo-hC-NX3" secondAttribute="trailing" constant="8" id="XTH-DQ-oXy"/>
+                    <constraint firstItem="zvo-hC-NX3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="apZ-iJ-4ZY"/>
+                    <constraint firstItem="by3-Hu-I7n" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zvo-hC-NX3" secondAttribute="bottom" constant="8" id="b3k-cG-TRK"/>
+                    <constraint firstItem="zvo-hC-NX3" firstAttribute="leading" secondItem="ycv-hU-4KC" secondAttribute="trailing" constant="8" id="bi2-N2-pD4"/>
+                    <constraint firstItem="kza-eU-iUm" firstAttribute="bottom" secondItem="by3-Hu-I7n" secondAttribute="bottom" id="chr-gs-6w0"/>
+                    <constraint firstAttribute="bottom" secondItem="by3-Hu-I7n" secondAttribute="bottom" constant="8" id="fnF-m8-KKT"/>
+                    <constraint firstItem="by3-Hu-I7n" firstAttribute="leading" secondItem="ycv-hU-4KC" secondAttribute="trailing" constant="8" id="vb6-sI-wik"/>
+                    <constraint firstAttribute="trailing" secondItem="kza-eU-iUm" secondAttribute="trailing" constant="8" id="ySg-fS-KzI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="chatBox" destination="by3-Hu-I7n" id="uXI-LJ-lC7"/>
+                <outlet property="userChat" destination="YK5-Il-2Lg" id="dDh-Ik-hml"/>
+                <outlet property="userChatTime" destination="kza-eU-iUm" id="eVh-1w-i1R"/>
+                <outlet property="userName" destination="zvo-hC-NX3" id="Umn-Hj-DiU"/>
+                <outlet property="userProfile" destination="ycv-hU-4KC" id="lWI-cq-BtQ"/>
+            </connections>
+            <point key="canvasLocation" x="138.93129770992365" y="28.87323943661972"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
